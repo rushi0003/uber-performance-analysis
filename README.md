@@ -1,232 +1,144 @@
 # Uber Mumbai Ride Analytics 🚕
 
-### End-to-End Data Analytics Project \| Excel • PostgreSQL • Power BI
+### End-to-End Data Analytics Portfolio Project | Excel • PostgreSQL • Power BI
 
-An end-to-end portfolio project analyzing **95,000+ synthetic ride
-bookings in Mumbai** to understand booking demand, operational
-performance, cancellations, weather effects, revenue, and customer
-behavior.
+An end-to-end analysis of **95,983 cleaned synthetic ride bookings** across Mumbai, exploring booking demand, revenue, operational performance, cancellations, weather conditions, and customer behavior. The project follows a practical analytics workflow: **data validation and cleaning → SQL business analysis → interactive Power BI reporting → recommendations**.
 
-> **Dataset note:** This is a **synthetic, educational dataset**. The
-> findings are project insights, not official Uber performance figures.
+> **Dataset disclaimer:** The dataset is synthetic and used for educational purposes. The results do **not** represent Uber's actual business performance. This project is independent and is not affiliated with or endorsed by Uber.
 
-## Project Overview
+## Project at a Glance
 
-  -----------------------------------------------------------------------
-  Item                                Details
-  ----------------------------------- -----------------------------------
-  Domain                              Ride-hailing / Transportation
-                                      Analytics
+| Attribute | Details |
+|---|---|
+| Domain | Ride-hailing / Transportation Analytics |
+| Geography | Mumbai, India |
+| Dataset period | 15 October 2025 – 14 October 2026 |
+| Raw bookings | 96,055 |
+| Clean bookings | 95,983 |
+| Tools | Microsoft Excel, PostgreSQL, Power BI |
+| Techniques | Data cleaning, validation, SQL, KPIs, DAX, data modeling, visualization |
 
-  Geography                           Mumbai, India
+## Business Questions
 
-  Data period                         15 October 2025 -- 14 October 2026
+1. How many bookings are completed, and what is the overall gross booking value (GBV)?
+2. Which areas, zones, hours, and days generate the most demand?
+3. How do heavy rain and surge pricing relate to completion rates and waiting times?
+4. Which trip segments experience higher driver cancellation rates?
+5. How do vehicle types, promotions, payment methods, and repeat customers contribute to performance?
+6. Where could operations teams improve driver supply and customer experience?
 
-  Raw records                         96,055
+## Analytics Workflow
 
-  Clean records                       95,983
+### 1. Excel — Cleaning and Quality Assurance
 
-  Tools                               Microsoft Excel, PostgreSQL, Power
-                                      BI
+- Inspected the raw data for duplicate ride IDs, missing values, and invalid ride records.
+- Removed **55 duplicate ride IDs** and **17 invalid completed-ride records**.
+- Standardized missing weather and payment-method entries as `Unknown`.
+- Prepared time-based attributes and performed data quality checks.
+- Reduced the dataset from **96,055** to **95,983** bookings for analysis.
 
-  Core techniques                     Data cleaning, SQL analysis, KPI
-                                      reporting, DAX, dashboard design
-  -----------------------------------------------------------------------
+### 2. PostgreSQL — Business Analysis
 
-## Business Objectives
+Used SQL and a clean-data view named `rides_clean` to investigate:
 
--   Track bookings, completed rides, gross booking value (GBV), average
-    fare, and operational KPIs.
--   Identify high-demand areas, peak hours, and zone-to-zone ride
-    patterns.
--   Examine weather-related changes in completion rate, wait times, and
-    surge pricing.
--   Investigate driver cancellations, especially for short-distance
-    trips.
--   Explore customer loyalty, ratings, payment behavior, and promotional
-    effectiveness.
--   Present actionable findings in an interactive Power BI dashboard.
+- Core booking, completion, fare, and revenue metrics
+- Monthly demand trends and growth
+- High-demand pickup areas and zone-to-zone flows
+- Peak-hour behavior and weather effects
+- Driver cancellations and short-distance trips
+- Promotions and vehicle categories
+- Customer ride frequency and spending
+- Driver contribution and unusual booking patterns
 
-## Project Workflow
+### 3. Power BI — Dashboard and Reporting
 
-**Raw CSV → Excel Cleaning & Validation → PostgreSQL Analysis → Power BI
-Modeling & Dashboard → Business Recommendations**
+Created an interactive four-page report using a ride fact table, date and area dimensions, DAX measures, and page-specific filters.
 
-### 1. Excel --- Data Cleaning and Quality Checks
+| Dashboard page | Main analysis |
+|---|---|
+| **01 — Executive Overview** | Booking and revenue KPIs, monthly trends, vehicle mix |
+| **02 — Area & Demand** | Pickup-area demand, geographic distribution, zone-to-zone movements |
+| **03 — Time & Weather** | Hourly and weekday demand, surge pricing, weather-related completion and wait times |
+| **04 — Cancellations & Customers** | Cancellation reasons, trip distance, ratings, customer segments, promotion comparisons |
 
--   Reviewed raw data, column types, missing values, and duplicate ride
-    IDs.
--   Removed **55 duplicate ride IDs** and **17 invalid completed-ride
-    records**.
--   Standardized missing weather and payment-method values as `Unknown`.
--   Added analysis-friendly time attributes and performed quality
-    checks.
--   Produced the cleaned dataset with **95,983 records**.
+### Dashboard PDF
 
-### 2. PostgreSQL --- Business Analysis
+**[View the complete Power BI Dashboard (PDF)](./Power%20BI/Uber%20Ride%20Analytics%20Dashboard.pdf)**
 
-Used SQL queries and a clean-data view (`rides_clean`) for analyses
-including:
+The repository includes an exported PDF of the Power BI report for viewing without Power BI Desktop. The four dashboard sections are described above; use the PDF to inspect the published visuals.
 
--   Core ride and revenue KPIs
--   Monthly booking trends and growth
--   Top pickup areas and zone-level demand
--   Peak-hour and weather impact
--   Cancellation patterns and short-trip behavior
--   Promo effectiveness and vehicle performance
--   Customer frequency and spending segmentation
--   Driver contribution and anomaly detection
+## Key Findings
 
-### 3. Power BI --- Interactive Dashboard
+The figures below are **project analysis benchmarks** documented in the project materials; individual values should be reconciled with the final Excel, SQL, and Power BI calculations before external reporting.
 
-Built a four-page dashboard using a ride fact table, area dimension,
-date dimension, DAX measures, and page-specific filters.
+| Metric | Finding |
+|---|---:|
+| Total cleaned bookings | **95,983** |
+| Completed rides | **77,530** |
+| Completion rate | **~80.8%** |
+| Gross booking value (GBV) | **~₹2.15 crore** |
+| Average completed-ride fare | **~₹277.68** |
+| Heavy-rain completion rate | **68.5%** vs **82.7%** in clear weather |
+| Average wait in heavy rain | **10.3 min** vs **5.7 min** in clear weather |
+| Driver cancellation on trips under 2.5 km | **~14%** vs **~7.5%** on other trips |
+| Spending by customers with 9+ rides | **~41%** of analyzed spending |
+| Total promotional discounts | **~₹3.04 lakh** |
 
-  -----------------------------------------------------------------------
-  Page                    Main visuals            Focus
-  ----------------------- ----------------------- -----------------------
-  **01 --- Executive      KPI cards, monthly      Business health and
-  Overview**              rides chart, vehicle    revenue
-                          mix donut               
+### Interpretation
 
-  **02 --- Area &         Area treemap, top       Geographic demand
-  Demand**                pickup areas,           
-                          zone-to-zone matrix     
+**Weather and reliability:** Heavy rain is associated with lower completion rates and longer waiting times, indicating an opportunity to plan driver coverage and communicate realistic ETAs.
 
-  **03 --- Time &         Hour × weekday heatmap, Temporal and weather
-  Weather**               hourly surge, weather   patterns
-                          completion and wait     
-                          charts                  
+**Short-trip cancellations:** Trips below 2.5 km show a higher driver cancellation rate, making them a useful segment for targeted operational experiments.
 
-  **04 --- Cancellations  Cancellation reasons,   Service quality and
-  & Customers**           distance-based          customer behavior
-                          cancellation, ratings   
-                          vs wait, customer       
-                          segments, promo         
-                          comparison              
-  -----------------------------------------------------------------------
+**Customer retention:** Frequent riders account for a substantial share of spending, suggesting that repeat-customer behavior deserves attention in retention analysis.
 
-## Key Project Findings
-
-The following figures are **project-guide benchmarks**. Confirm the
-final values against your published Excel, SQL, and Power BI outputs
-before presenting them as independently validated results.
-
-  -----------------------------------------------------------------------
-  Metric / finding                    Project benchmark
-  ----------------------------------- -----------------------------------
-  Clean bookings                      **95,983**
-
-  Completed rides                     **77,530**
-
-  Completion rate                     **\~80.8%**
-
-  Gross booking value (GBV)           **\~₹2.15 crore**
-
-  Average completed-ride fare         **\~₹277.68**
-
-  Heavy-rain completion rate          **68.5%**, versus **82.7%** in
-                                      clear weather
-
-  Heavy-rain average wait             **10.3 min**, versus **5.7 min** in
-                                      clear weather
-
-  Short-trip driver cancellation      **\~14%** for rides under 2.5 km,
-                                      versus **\~7.5%** for normal trips
-
-  Loyal customers                     Customers with **9+ rides** account
-                                      for \~**41%** of spending in the
-                                      project analysis
-
-  Promotional discounts               **\~₹3.04 lakh** total discount
-                                      cost
-  -----------------------------------------------------------------------
+**Promotion economics:** Discount costs should be compared with incremental bookings and customer retention; descriptive comparisons alone cannot establish that promotions caused an improvement.
 
 ## Business Recommendations
 
-1.  **Strengthen peak-hour driver supply:** Use hourly demand and surge
-    patterns to plan driver availability.
-2.  **Prepare for heavy rain:** Improve supply coverage and customer
-    wait-time communication during adverse weather.
-3.  **Investigate short-trip cancellations:** Test targeted incentives
-    and monitor cancellation rates by trip-distance bucket.
-4.  **Prioritize high-demand pickup areas:** Use area and zone analyses
-    to guide driver positioning.
-5.  **Support customer retention:** Explore loyalty campaigns for repeat
-    riders while measuring incremental impact.
-6.  **Evaluate promotions carefully:** Compare promo spend and
-    performance, without assuming observed differences prove causation.
+1. **Improve peak-hour driver coverage:** Align driver availability with high-demand hours and pickup areas.
+2. **Plan for adverse weather:** Monitor rain-related supply shortages, wait times, and booking completion.
+3. **Test short-trip incentives:** Evaluate carefully targeted driver incentives and track cancellation rates before and after implementation.
+4. **Optimize geographic allocation:** Use area and zone-level booking patterns to support driver positioning.
+5. **Monitor loyal customers:** Measure repeat-rider retention and spending without assuming correlation implies causation.
+6. **Review promotion efficiency:** Assess discount costs against measurable business outcomes.
 
-## Dashboard Screenshots
+## Repository Contents
 
-> Add exported dashboard images to `04_Power_BI/Dashboard_Screenshots/`
-> using the filenames below. GitHub will display them automatically when
-> present.
+The following are the **top-level items visible in the published repository**:
 
-### Executive Overview
-
-![Executive Overview
-Dashboard](04_Power_BI/Dashboard_Screenshots/01_Executive_Overview.png)
-
-### Area & Demand Analysis
-
-![Area and Demand
-Dashboard](04_Power_BI/Dashboard_Screenshots/02_Area_Demand.png)
-
-### Time & Weather Analysis
-
-![Time and Weather
-Dashboard](04_Power_BI/Dashboard_Screenshots/03_Time_Weather.png)
-
-### Cancellations & Customers
-
-![Cancellations and Customers
-Dashboard](04_Power_BI/Dashboard_Screenshots/04_Cancellations_Customers.png)
-
-## Repository Structure
-
-``` text
-Uber-Mumbai-Ride-Analytics/
-├── README.md
-├── 01_Data/
-│   ├── Raw_Data/
-│   └── Cleaned_Data/
-├── 02_Excel/
-├── 03_SQL/
-├── 04_Power_BI/
-│   ├── Uber_Mumbai_Dashboard.pbix
-│   └── Dashboard_Screenshots/
-│       ├── 01_Executive_Overview.png
-│       ├── 02_Area_Demand.png
-│       ├── 03_Time_Weather.png
-│       └── 04_Cancellations_Customers.png
-├── 05_Reports/
-└── 06_Documentation/
+```text
+uber-performance-analysis/
+├── raw data/                              # Original data
+├── Clean data/                            # Cleaned project data
+├── SQL/                                   # SQL analysis files
+├── Power BI/                              # Power BI project files
+│   └── Uber Ride Analytics Dashboard.pdf  # Exported dashboard
+├── Rushikesh Gund Uber Analytics PPT.pptx # Project presentation
+└── README.md                              # Project documentation
 ```
 
-*The structure above is a suggested organization. Keep filenames
-consistent with the files you actually upload.*
+> Folder and file names are case-sensitive in GitHub URLs. The structure above reflects the visible repository root; individual filenames inside folders are not assumed.
 
-## How to Explore the Project
+## Explore the Project
 
-1.  Start with this README and the dashboard screenshots.
-2.  Open the Excel workbook in `02_Excel/` to review cleaning and
-    quality checks.
-3.  Review the PostgreSQL scripts in `03_SQL/` to understand the
-    business questions and analysis.
-4.  Open the `.pbix` file in `04_Power_BI/` using Power BI Desktop.
-5.  If the Power BI file references local CSV paths, update the data
-    source settings to point to your downloaded files and refresh.
+- [Raw data](./raw%20data/)
+- [Cleaned data](./Clean%20data/)
+- [SQL analysis](./SQL/)
+- [Power BI dashboard PDF](./Power%20BI/Uber%20Ride%20Analytics%20Dashboard.pdf)
+- [Power BI files](./Power%20BI/)
+- [Project presentation](./Rushikesh%20Gund%20Uber%20Analytics%20PPT.pptx)
+
+To review the analysis, begin with the cleaned data, explore the SQL scripts, then open the available Power BI report files in **Power BI Desktop**. If a report references local source paths, update its data source settings and refresh the model.
 
 ## Skills Demonstrated
 
-`Excel` · `Data Cleaning` · `Data Validation` · `PostgreSQL` ·
-`SQL Joins` · `CTEs` · `Window Functions` · `KPI Analysis` ·
-`Power Query` · `DAX` · `Data Modeling` · `Power BI` ·
-`Data Visualization` · `Business Insights`
+**Microsoft Excel:** Data cleaning, validation, quality checks, and analytical preparation  
+**PostgreSQL:** KPI queries, grouping, joins, CTEs, window functions, and business analysis  
+**Power BI:** Data modeling, DAX measures, interactive dashboards, and storytelling  
+**Business Analytics:** Demand analysis, operational performance, cancellations, customer behavior, and recommendations
 
-------------------------------------------------------------------------
+---
 
-**Disclaimer:** This repository is an independent learning and portfolio
-project using synthetic data. It is not affiliated with or endorsed by
-Uber.
+**Project type:** Independent educational portfolio project using synthetic Mumbai ride-hailing data.  
+**Repository:** [Uber Performance Analysis](https://github.com/rushi0003/uber-performance-analysis)
