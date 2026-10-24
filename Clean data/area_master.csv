@@ -1,0 +1,50 @@
+area,zone,latitude,longitude,area_type,relative_demand_index
+Colaba,South Mumbai,18.9067,72.8147,nightlife,1.6
+Nariman Point,South Mumbai,18.9256,72.8242,business,1.3
+Fort,South Mumbai,18.9322,72.8347,business,1.2
+Churchgate,South Mumbai,18.9322,72.8264,transit,1.8
+Marine Lines,South Mumbai,18.944,72.823,residential,0.8
+Malabar Hill,South Mumbai,18.9548,72.7985,residential,0.7
+Girgaon,South Mumbai,18.9547,72.812,residential,0.8
+Grant Road,South Mumbai,18.9636,72.815,mixed,0.8
+Mumbai Central,South Mumbai,18.9696,72.8196,transit,1.6
+Byculla,South Mumbai,18.978,72.833,mixed,0.8
+Lower Parel,Central Mumbai,18.9953,72.8302,business,2.6
+Worli,Central Mumbai,19.01,72.818,mixed,2.0
+Prabhadevi,Central Mumbai,19.017,72.83,mixed,1.0
+Parel,Central Mumbai,19.01,72.84,business,1.3
+Dadar,Central Mumbai,19.0178,72.8478,transit,2.8
+Mahim,Central Mumbai,19.041,72.84,residential,1.2
+Matunga,Central Mumbai,19.027,72.857,residential,0.9
+Sion,Central Mumbai,19.039,72.8619,residential,1.0
+Wadala,Central Mumbai,19.0176,72.8561,business,1.1
+Dharavi,Central Mumbai,19.043,72.853,residential,0.6
+Bandra West,Western Suburbs,19.0596,72.8295,nightlife,3.6
+BKC,Western Suburbs,19.069,72.869,business,3.2
+Khar,Western Suburbs,19.07,72.836,mixed,1.8
+Santacruz,Western Suburbs,19.081,72.841,mixed,1.6
+Vile Parle,Western Suburbs,19.1,72.845,residential,1.7
+Juhu,Western Suburbs,19.1075,72.8263,nightlife,2.2
+Andheri West,Western Suburbs,19.136,72.8296,mixed,4.2
+Versova,Western Suburbs,19.13,72.814,mixed,1.3
+Andheri East,Western Suburbs,19.1197,72.8697,business,4.0
+Jogeshwari,Western Suburbs,19.136,72.849,residential,1.3
+Goregaon,Western Suburbs,19.1663,72.8526,mixed,2.7
+Malad,Western Suburbs,19.186,72.848,residential,2.8
+Kandivali,Western Suburbs,19.205,72.852,residential,2.2
+Borivali,Western Suburbs,19.2307,72.8567,residential,2.6
+Dahisar,Western Suburbs,19.25,72.859,residential,1.1
+Airport T2,Western Suburbs,19.0896,72.8656,airport,2.4
+Airport T1,Western Suburbs,19.099,72.857,airport,1.0
+Kurla,Eastern Suburbs,19.0728,72.8826,transit,2.0
+Chembur,Eastern Suburbs,19.0522,72.9005,residential,2.0
+Ghatkopar,Eastern Suburbs,19.086,72.908,mixed,2.3
+Vidyavihar,Eastern Suburbs,19.079,72.898,mixed,0.7
+Vikhroli,Eastern Suburbs,19.11,72.927,residential,1.3
+Kanjurmarg,Eastern Suburbs,19.13,72.937,business,0.9
+Bhandup,Eastern Suburbs,19.144,72.938,residential,1.0
+Mulund,Eastern Suburbs,19.1726,72.956,residential,1.7
+Powai,Eastern Suburbs,19.1176,72.906,business,2.6
+Sakinaka,Eastern Suburbs,19.103,72.889,business,0.8
+Govandi,Eastern Suburbs,19.055,72.917,residential,0.8
+Mankhurd,Eastern Suburbs,19.048,72.932,residential,0.6
